@@ -1,59 +1,59 @@
 // Generated from: tests/UI_Test/feature/login.feature
-import { test } from "playwright-bdd";
+import { test } from "../../../../tests/UI_Test/fixture/fixtures.ts";
 
 test.describe('Verify login', () => {
 
-  test.beforeEach('Background: Navigate to eco login page', async ({ Given, page }, testInfo) => { if (testInfo.error) return;
-    await Given('I navigate to "https://ecommerce-playground.lambdatest.io/"', null, { page }); 
+  test.beforeEach('Background: Navigate to eco login page', async ({ Given, loginPage }, testInfo) => { if (testInfo.error) return;
+    await Given('I navigate to "https://ecommerce-playground.lambdatest.io/"', null, { loginPage }); 
   });
   
-  test('Verify user is able to login with valid credentials', { tag: ['@login'] }, async ({ When, Then, And, page }) => { 
-    await And('I click on My account', null, { page }); 
-    await And('I enter E-Mail Address "pranav@testroverautomation.com"', null, { page }); 
-    await And('I enter password "Test1234"', null, { page }); 
-    await When('I click on submit button', null, { page }); 
+  test('Verify user is able to login with valid credentials', { tag: ['@login'] }, async ({ When, Then, And, loginPage, page }) => { 
+    await And('I click on My account', null, { loginPage }); 
+    await And('I enter E-Mail Address "pranav@testroverautomation.com"', null, { loginPage }); 
+    await And('I enter password "Test1234"', null, { loginPage }); 
+    await When('I click on submit button', null, { loginPage }); 
     await Then('I should verify url contains "route=account/account"', null, { page }); 
   });
 
   test.describe('Verify user is not able login with following "<emailaddress>" & "<password>"', () => {
 
-    test('Verify user is not able login with following "xzy@gmail.com" & "TesMeTest"', { tag: ['@login'] }, async ({ When, Then, And, page }) => { 
-      await And('I click on My account', null, { page }); 
-      await And('I enter E-Mail Address "xzy@gmail.com"', null, { page }); 
-      await And('I enter password "TesMeTest"', null, { page }); 
-      await When('I click on submit button', null, { page }); 
+    test('Verify user is not able login with following "xzy@gmail.com" & "TesMeTest"', { tag: ['@login'] }, async ({ When, Then, And, loginPage, page }) => { 
+      await And('I click on My account', null, { loginPage }); 
+      await And('I enter E-Mail Address "xzy@gmail.com"', null, { loginPage }); 
+      await And('I enter password "TesMeTest"', null, { loginPage }); 
+      await When('I click on submit button', null, { loginPage }); 
       await Then('I should verify user is not able to login and url contains "route=account/login"', null, { page }); 
     });
 
-    test('Verify user is not able login with following "srk@testroverautomation.com" & "Jawan123"', { tag: ['@login'] }, async ({ When, Then, And, page }) => { 
-      await And('I click on My account', null, { page }); 
-      await And('I enter E-Mail Address "srk@testroverautomation.com"', null, { page }); 
-      await And('I enter password "Jawan123"', null, { page }); 
-      await When('I click on submit button', null, { page }); 
+    test('Verify user is not able login with following "srk@testroverautomation.com" & "Jawan123"', { tag: ['@login'] }, async ({ When, Then, And, loginPage, page }) => { 
+      await And('I click on My account', null, { loginPage }); 
+      await And('I enter E-Mail Address "srk@testroverautomation.com"', null, { loginPage }); 
+      await And('I enter password "Jawan123"', null, { loginPage }); 
+      await When('I click on submit button', null, { loginPage }); 
       await Then('I should verify user is not able to login and url contains "route=account/login"', null, { page }); 
     });
 
-    test('Verify user is not able login with following "testerrgreat@123.com" & "Tesrxzy123"', { tag: ['@login'] }, async ({ When, Then, And, page }) => { 
-      await And('I click on My account', null, { page }); 
-      await And('I enter E-Mail Address "testerrgreat@123.com"', null, { page }); 
-      await And('I enter password "Tesrxzy123"', null, { page }); 
-      await When('I click on submit button', null, { page }); 
+    test('Verify user is not able login with following "testerrgreat@123.com" & "Tesrxzy123"', { tag: ['@login'] }, async ({ When, Then, And, loginPage, page }) => { 
+      await And('I click on My account', null, { loginPage }); 
+      await And('I enter E-Mail Address "testerrgreat@123.com"', null, { loginPage }); 
+      await And('I enter password "Tesrxzy123"', null, { loginPage }); 
+      await When('I click on submit button', null, { loginPage }); 
       await Then('I should verify user is not able to login and url contains "route=account/login"', null, { page }); 
     });
 
-    test('Verify user is not able login with following "srk_jawan@test.com" & "great123"', { tag: ['@login'] }, async ({ When, Then, And, page }) => { 
-      await And('I click on My account', null, { page }); 
-      await And('I enter E-Mail Address "srk_jawan@test.com"', null, { page }); 
-      await And('I enter password "great123"', null, { page }); 
-      await When('I click on submit button', null, { page }); 
+    test('Verify user is not able login with following "srk_jawan@test.com" & "great123"', { tag: ['@login'] }, async ({ When, Then, And, loginPage, page }) => { 
+      await And('I click on My account', null, { loginPage }); 
+      await And('I enter E-Mail Address "srk_jawan@test.com"', null, { loginPage }); 
+      await And('I enter password "great123"', null, { loginPage }); 
+      await When('I click on submit button', null, { loginPage }); 
       await Then('I should verify user is not able to login and url contains "route=account/login"', null, { page }); 
     });
 
-    test('Verify user is not able login with following "SalmanDabang@gmail.com" & "test 123"', { tag: ['@login'] }, async ({ When, Then, And, page }) => { 
-      await And('I click on My account', null, { page }); 
-      await And('I enter E-Mail Address "SalmanDabang@gmail.com"', null, { page }); 
-      await And('I enter password "test 123"', null, { page }); 
-      await When('I click on submit button', null, { page }); 
+    test('Verify user is not able login with following "SalmanDabang@gmail.com" & "test 123"', { tag: ['@login'] }, async ({ When, Then, And, loginPage, page }) => { 
+      await And('I click on My account', null, { loginPage }); 
+      await And('I enter E-Mail Address "SalmanDabang@gmail.com"', null, { loginPage }); 
+      await And('I enter password "test 123"', null, { loginPage }); 
+      await When('I click on submit button', null, { loginPage }); 
       await Then('I should verify user is not able to login and url contains "route=account/login"', null, { page }); 
     });
 
